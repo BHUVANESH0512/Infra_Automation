@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: iac-generator-backend
+    env: docker
+    dockerfilePath: ./iac-generator/backend/Dockerfile
+    dockerContext: ./iac-generator/backend
+    plan: free # or standard if you need more resources
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_OWNER
+        sync: false
+      - key: SLACK_BOT_TOKEN
+        sync: false
